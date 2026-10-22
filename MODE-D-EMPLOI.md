@@ -46,8 +46,10 @@ Le réglage « Contrôle complet automatique » lance ce contrôle un jour et un
 
 À la désignation, coche **Chiffrer ce backup**. Miroir crée dans le dossier choisi une image disque chiffrée (AES-256) et la copie vit dedans. Tant que l'image est fermée, personne ne peut lire le backup, pas même Miroir.
 
-- La phrase secrète fait au moins 8 caractères. Elle est vérifiée en ouvrant l'image, puis rangée dans le trousseau de ce Mac : Miroir rouvre le backup tout seul.
+- La phrase secrète fait au moins 8 caractères. Elle est vérifiée en ouvrant l'image, puis rangée dans le trousseau de ce Mac : Miroir rouvre le backup sans la redemander.
+- **Miroir n'ouvre l'image que pour une action** : Analyser, Sauvegarder, Contrôle complet, Déverrouiller. Jamais en arrière-plan, et une image que tu as éjectée dans le Finder reste fermée.
 - **Verrouiller et éjecter** ferme l'image puis éjecte le disque, pour le débrancher.
+- **Fermer Miroir referme toutes ses images.** Si un fichier de l'image est encore ouvert ailleurs, dans le Finder ou un lecteur vidéo, macOS refuse : une notification le dit, ferme ce fichier puis éjecte l'image dans le Finder. Seul un arrêt forcé de Miroir laisse l'image ouverte jusqu'au redémarrage du Mac.
 - **Déverrouiller** rouvre l'image. Sur un autre Mac, ou si le trousseau ne l'a plus, il demande la phrase une fois.
 - Pour relire le backup sans Miroir : double-clic sur l'image dans le Finder, la phrase, et les fichiers sont là.
 - **Si tu perds la phrase, le backup est perdu.** Personne ne peut la retrouver. Note-la dans ton gestionnaire de mots de passe avant de créer l'image.
@@ -67,7 +69,7 @@ Le chiffrement se choisit à la désignation : on ne chiffre pas un backup exist
 - **« Le disque n'est pas branché »** : branche-le. Si le volume est monté sous un autre nom (« Medias 1 »), Miroir le retrouve quand même.
 - **« Un dossier existe mais ce n'est pas celui qui a été désigné »** : un dossier du même nom a été recréé au même endroit. Vérifie que c'est le bon disque. Si oui, retire la paire et désigne-la à nouveau.
 - **« Le master a beaucoup rétréci »** : presque toujours un disque mal monté ou un dossier recréé. Vérifie avant de continuer.
-- **Le backup chiffré est verrouillé** : clique sur Déverrouiller. S'il demande la phrase, c'est que le trousseau ne l'a plus.
+- **Le backup chiffré est verrouillé** : c'est son état normal quand Miroir ne s'en sert pas. Analyser ou Déverrouiller le rouvre. Si Miroir demande la phrase, c'est que le trousseau ne l'a plus.
 - **Le disque ne répond plus** : Miroir le dit en rouge. Retire le disque, le passage suivant reprend le fichier interrompu.
 - **Je veux arrêter d'utiliser Miroir** : retire les paires, puis supprime l'application. Les backups restent lisibles tels quels (ou avec la phrase, s'ils sont chiffrés) ; les fichiers `.miroir-*` sur le backup peuvent être effacés.
 
