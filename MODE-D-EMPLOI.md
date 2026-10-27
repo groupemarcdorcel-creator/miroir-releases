@@ -61,7 +61,8 @@ Le chiffrement se choisit à la désignation : on ne chiffre pas un backup exist
 
 - Chaque carte affiche « Dernière sauvegarde il y a N » avec les comptes du dernier passage, en orange au-delà de sept jours ou s'il y a eu des erreurs.
 - **Éjecter** sort le disque de backup proprement. Sur exFAT, c'est là que se joue la corruption : éjecte avant de débrancher.
-- La case « Analyser automatiquement au branchement » lance une analyse à chaque disque branché, et te prévient par une notification s'il y a quelque chose à faire. Jamais de sauvegarde automatique.
+- La case « Analyser automatiquement au branchement » lance une analyse à chaque disque branché, et te prévient par une notification s'il y a quelque chose à faire. Elle ne sauvegarde jamais.
+- Sur chaque carte, la case « Analyser toutes les … minutes et sauvegarder s'il y a du nouveau » fait la sauvegarde toute seule, pour cette paire, même quand Miroir est fermé : il est alors lancé sans fenêtre, passe les paires dont l'heure est venue et se referme. Le Mac doit être allumé ; s'il dort, le passage se fait au réveil. Le compte part du moment où tu coches, puis de chaque passage. Une analyse bloquée (trop de fichiers à mettre en corbeille, pas assez de place) n'est jamais forcée : une notification le dit une fois, et la fenêtre s'ouvre sur la paire, qui attend qu'on la regarde. Un backup chiffré fermé est rouvert pour l'occasion puis refermé ; celui qui demande sa phrase à chaque fois est laissé de côté.
 - L'option « Relire chaque fichier copié » relit chaque copie hors cache et compare son empreinte à la source avant de lui donner son vrai nom. Plus lent, plus sûr, conseillé avec un câble ou un disque dont on doute.
 - Une sauvegarde interrompue brutalement (disque arraché, Mac éteint) est signalée au lancement suivant, avec le contrôle complet en un clic. Une copie interrompue reprend là où elle en était.
 
@@ -76,4 +77,4 @@ Le chiffrement se choisit à la désignation : on ne chiffre pas un backup exist
 
 ## 9. Ce que Miroir ne fait pas
 
-Pas de synchronisation dans les deux sens, pas de sauvegarde vers le réseau ou le cloud, pas de sauvegarde automatique sans clic, pas de version Windows. Les fichiers de Miroir sur le backup commencent tous par `.miroir-`.
+Pas de synchronisation dans les deux sens, pas de sauvegarde vers le réseau ou le cloud, pas de sauvegarde automatique sans l'avoir cochée sur la paire, pas de version Windows. Les fichiers de Miroir sur le backup commencent tous par `.miroir-`.
